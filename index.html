@@ -12,9 +12,15 @@
 <body>
     <div class="wrap">
         <div class="board-container">
+            <h4 class="logo">TETRIS<br><small>HTML • CSS • JS</small></h4>
             <canvas id="game"></canvas>
             <div class="panel">
-                <h4 class="logo">TETRIS<br><small>HTML • CSS • JS</small></h4>
+                <div class="controls">
+                    <button id="btnLeft" class="control-btn">←</button>
+                    <button id="btnRotate" class="control-btn">⟳</button>
+                    <button id="btnRight" class="control-btn">→</button>
+                    <button id="btnDrop" class="control-btn">↓</button>
+                </div>
                 <canvas id="next" class="next-preview"></canvas>
                 <div class="stats">
                     <p>Score: <span id="score">0</span></p>
@@ -23,18 +29,12 @@
                 </div>
                 <div class="btns">
                     <button id="startBtn" class="btn btn-success btn-sm mb-2">Start</button>
-                    <button id="pauseBtn" class="btn btn-warning btn-sm mb-2">Pause</button>
-                    <button id="resetBtn" class="btn btn-danger btn-sm">Reset</button>
+                    <button id="pauseBtn" class="btn btn-warning btn-sm mb-2" disabled>Pause</button>
+                    <button id="resetBtn" class="btn btn-danger btn-sm" disabled>Reset</button>
                 </div>
             </div>
-            <div id="overlayHolder"></div>
-        </div>
 
-        <div class="controls">
-            <button id="btnLeft" class="control-btn">←</button>
-            <button id="btnRotate" class="control-btn">⟳</button>
-            <button id="btnRight" class="control-btn">→</button>
-            <button id="btnDrop" class="control-btn">↓</button>
+            <div id="overlayHolder"></div>
         </div>
     </div>
 
@@ -44,7 +44,7 @@
         Seu navegador não suporta áudio.
     </audio>
 
-    <!-- Créditos no rodapé -->
+    <!-- Créditos -->
     <footer class="credits">
         <p>Instrutor: <strong>Lenon Yuri</strong> | SENAI MG Uberaba</p>
     </footer>

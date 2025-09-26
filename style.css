@@ -1,186 +1,173 @@
-* {
+/* -------------------- Estilos gerais -------------------- */
+html,
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Inter", system-ui, Arial, sans-serif;
-  background: linear-gradient(to bottom, #0f1b2a, #18253f);
-  color: #f0f0f0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-.wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 95vw;
-  max-width: 480px;
-}
-
-.board-container {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-  gap: 12px;
-}
-
-#game {
-  background: #1a2536;
-  border-radius: 8px;
-  display: block;
-  width: 100%;
-  max-width: 240px;
-  aspect-ratio: 1/2;
-  border: 2px solid #fff;
-}
-
-.panel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 1;
-  border: 2px solid #fff;
-  border-radius: 8px;
-  padding: 12px;
-  background: #1a2233;
-}
-
-.logo {
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 12px;
-  text-align: center;
+  height: 100%;
+  font-family: "Inter", Arial, sans-serif;
+  background: #0d1b2a;
   color: #fff;
 }
 
-.next-preview {
-  width: 80px;
-  height: 80px;
-  background: #14203a;
-  border-radius: 6px;
-  margin-bottom: 12px;
-  border: 1px solid #fff;
-}
-
-.stats {
-  text-align: center;
-  margin-bottom: 12px;
-  color: #f0f0f0;
-}
-
-.btns {
+body {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  min-height: 100%;
+}
+
+/* -------------------- Wrap principal -------------------- */
+.wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* -------------------- Container do jogo -------------------- */
+.board-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 15px;
+  background: #07111b;
+  max-width: 500px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* -------------------- Logo -------------------- */
+.logo {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* -------------------- Canvas principal -------------------- */
+#game {
+  background: #06121a;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  width: 240px;
+  height: 480px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* -------------------- Painel -------------------- */
+.panel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+/* -------------------- Controles -------------------- */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.control-btn {
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 8px;
+  border: none;
+  background-color: #1b2a3a;
+  color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* -------------------- Próxima peça -------------------- */
+.next-preview {
+  border: 1px solid #fff;
+  margin: 10px auto;
+  display: block;
+  background: #06121a;
+  width: 80px;
+  height: 80px;
+}
+
+/* -------------------- Stats -------------------- */
+.stats {
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.stats p {
+  margin: 3px 0;
+}
+
+/* -------------------- Botões do painel -------------------- */
+.btns {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   width: 100%;
 }
 
 .btns .btn {
   width: 100%;
-  background: #3a4a6a;
-  color: #f0f0f0;
-  border: none;
-  transition: all 0.1s ease;
 }
 
-.btns .btn:hover:not(:disabled) {
-  background: #55688c;
-}
-.btns .btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-#overlayHolder {
+/* -------------------- Overlay -------------------- */
+#overlayHolder .game-over {
   position: absolute;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.game-over {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(30, 40, 60, 0.9);
-  color: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  text-align: center;
-  font-size: 18px;
-}
-
-.controls {
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
   display: flex;
-  justify-content: space-between;
-  gap: 6px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1.5rem;
+  text-align: center;
+  z-index: 10;
+}
+
+/* -------------------- Créditos -------------------- */
+footer.credits {
+  font-size: 12px;
+  text-align: center;
+  color: #9fb0c9;
+  padding: 10px 0;
+  background: #07111b;
   width: 100%;
-  max-width: 480px;
-  margin-top: 12px;
+  flex-shrink: 0;
 }
 
-.control-btn {
-  flex: 1;
-  font-size: 20px;
-  padding: 12px;
-  border-radius: 8px;
-  background: #3a4a6a;
-  color: #f0f0f0;
-  border: none;
-  user-select: none;
-  touch-action: manipulation;
-  transition: all 0.1s ease;
-}
-
-.control-btn:active:not(:disabled) {
-  background: #55688c;
-  transform: scale(0.95);
-}
-
-.control-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-@media (max-width: 480px) {
-  .board-container {
-    flex-direction: column;
-    align-items: center;
-  }
+/* -------------------- Responsivo -------------------- */
+@media (max-width: 768px) {
   #game {
-    max-width: 90vw;
+    width: 76vw; /* largura máxima em percentual da tela */
+    max-width: 360px; /* nunca ultrapassa 360px */
+    height: calc((76vw / 10) * 20); /* mantém proporção 10x20 */
+    max-height: 720px; /* nunca ultrapassa 720px */
   }
+
+  .controls {
+    margin-bottom: 10px;
+  }
+
+  .panel {
+    width: 90%;
+  }
+
   .next-preview {
     width: 60px;
     height: 60px;
   }
-}
-/* Créditos no rodapé */
-.credits {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: rgba(11, 18, 32, 0.95);
-  color: #fff;
-  text-align: center;
-  padding: 8px 0;
-  font-size: 0.9rem;
-  border-top: 2px solid #fff;
-  z-index: 1000;
-}
-
-/* Evita que o rodapé cubra os elementos do jogo */
-.wrap {
-  padding-bottom: 50px; /* altura aproximada do rodapé */
 }
