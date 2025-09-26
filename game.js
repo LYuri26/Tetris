@@ -183,10 +183,10 @@
   function drawCell(x, y, val) {
     if (!val) return;
     ctx.fillStyle = COLORS[val];
-    ctx.shadowColor = "#00d2ff88";
+    ctx.shadowColor = "#00d2ff55";
     ctx.shadowBlur = 6;
     ctx.fillRect(x * CELL, y * CELL, CELL - 1, CELL - 1);
-    ctx.strokeStyle = "#fff";
+    ctx.strokeStyle = "#fff3";
     ctx.strokeRect(x * CELL, y * CELL, CELL - 1, CELL - 1);
     ctx.shadowBlur = 0;
   }
@@ -402,10 +402,7 @@
       <p class="small">Pressione o botão Start para reiniciar</p>
       <button id="overlayStart" class="btn btn-success btn-sm mt-2">Start</button>
     </div>`;
-
-    // Adiciona o listener para o botão dentro do overlay
-    const overlayStart = document.getElementById("overlayStart");
-    overlayStart.addEventListener("click", () => {
+    document.getElementById("overlayStart").addEventListener("click", () => {
       reset();
       hideOverlay();
     });
